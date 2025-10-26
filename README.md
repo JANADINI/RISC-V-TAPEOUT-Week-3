@@ -6,7 +6,7 @@ This repo covers three key stages of the RISC‑V VSDBabySoC verification flow, 
  # Part 1 – Post‑Synthesis Gate‑Level Simulation
     
 
-## Part 2 – Static Timing Analysis (STA) Fundamentals Guide
+# Part 2 – Static Timing Analysis (STA) Fundamentals Guide
 
 
 # Part 3 – OpenSTA Labs (Practical STA Execution)
@@ -15,9 +15,5 @@ This repo covers three key stages of the RISC‑V VSDBabySoC verification flow, 
 
    
 
-    Achieved functional and timing correctness for VSDBabySoC.
-
-    Verified end‑to‑end flow: Synthesis ➝ GLS ➝ Static Timing Analysis.
-
-    Design is now ready for physical design and sign‑off.
+  
 
