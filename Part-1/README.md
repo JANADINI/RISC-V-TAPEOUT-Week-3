@@ -106,7 +106,7 @@ read_verilog -I /home/janadinisk/vsd/VLSI/VSDBabySoC/src/include/ /home/janadini
 # Read clock gating module  
 read_verilog -I /home/janadinisk/vsd/VLSI/VSDBabySoC/src/include/ /home/janadinisk/vsd/VLSI/VSDBabySoC/src/module/clk_gate.v
 ```
-
+![image]()
 **What happens:** Yosys parses, elaborates, and builds internal RTL representation (RTLIL).
 
 ---
@@ -151,7 +151,7 @@ Number of cells:          6440
 ```bash
 dfflibmap -liberty /home/janadinisk/vsd/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-
+![image]()
 **Purpose:** Converts generic `$dff` cells to technology-specific D flip-flops with proper clock polarity, reset types, and timing characteristics.
 
 ---
@@ -175,7 +175,7 @@ opt
 ```bash
 abc -liberty /home/janadinisk/vsd/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -script +strash;scorr;ifraig;retime;{D};strash;dch,-f;map,-M,1,{D}
 ```
-
+![image]()
 **ABC Script Breakdown:**
 
 | Command | Purpose | Benefit |
