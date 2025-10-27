@@ -106,7 +106,7 @@ read_verilog -I /home/janadinisk/vsd/VLSI/VSDBabySoC/src/include/ /home/janadini
 # Read clock gating module  
 read_verilog -I /home/janadinisk/vsd/VLSI/VSDBabySoC/src/include/ /home/janadinisk/vsd/VLSI/VSDBabySoC/src/module/clk_gate.v
 ```
-![image]()
+
 **What happens:** Yosys parses, elaborates, and builds internal RTL representation (RTLIL).
 
 ---
@@ -121,7 +121,7 @@ read_liberty -lib /home/janadinisk/vsd/VLSI/VSDBabySoC/src/lib/avsdpll.lib
 # SkyWater 130nm standard cell library (TT corner, 25°C, 1.8V)
 read_liberty -lib /home/janadinisk/vsd/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-
+![image](https://github.com/JANADINI/RISC-V-TAPEOUT-Week-3/blob/main/Part-1/Pictures/liberty_files.png)
 **Liberty files contain:** Cell definitions, timing characteristics, power data, and area information.
 
 ---
@@ -151,7 +151,7 @@ Number of cells:          6440
 ```bash
 dfflibmap -liberty /home/janadinisk/vsd/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-![image]()
+![image](https://github.com/JANADINI/RISC-V-TAPEOUT-Week-3/blob/main/Part-1/Pictures/DFF_Cells.png)
 **Purpose:** Converts generic `$dff` cells to technology-specific D flip-flops with proper clock polarity, reset types, and timing characteristics.
 
 ---
@@ -175,7 +175,7 @@ opt
 ```bash
 abc -liberty /home/janadinisk/vsd/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -script +strash;scorr;ifraig;retime;{D};strash;dch,-f;map,-M,1,{D}
 ```
-![image]()
+![image](https://github.com/JANADINI/RISC-V-TAPEOUT-Week-3/blob/main/Part-1/Pictures/abc_results.png)
 **ABC Script Breakdown:**
 
 | Command | Purpose | Benefit |
@@ -406,7 +406,7 @@ iverilog -o pre_synth_sim.vvp \
 vvp pre_synth_sim.vvp
 gtkwave pre_synth_sim.vcd
 ```
-
+![image](https://github.com/JANADINI/RISC-V-TAPEOUT-Week-3/blob/main/Part-1/Pictures/pre_syn_analog_sim.png)
 **Characteristics:**
 - Clean signal transitions
 - Zero-delay logic propagation
@@ -416,7 +416,7 @@ gtkwave pre_synth_sim.vcd
 
 #### Post-Synthesis Waveform (Gate-Level Simulation)
 
-![Post-Synthesis Waveform](../images/post_synth_wave.png)
+![Post-Synthesis Waveform](https://github.com/JANADINI/RISC-V-TAPEOUT-Week-3/blob/main/Part-1/Pictures/post_synth_sim.vcd.png)
 
 **Characteristics:**
 - Slight gate delays visible (from `UNIT_DELAY=#1`)
@@ -573,11 +573,4 @@ gtkwave post_synth_sim.vcd
 
 ---
 
-## Additional Resources
 
-- [Yosys Documentation](http://www.clifford.at/yosys/documentation.html)
-- [SkyWater PDK](https://skywater-pdk.readthedocs.io/)
-- [Icarus Verilog Guide](http://iverilog.icarus.com/)
-- [GTKWave Tutorial](http://gtkwave.sourceforge.net/)
-
----
